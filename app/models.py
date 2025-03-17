@@ -23,10 +23,7 @@ class UserProfile(db.Model):
         return False
 
     def get_id(self):
-        try:
-            return unicode(self.id)  # python 2 support
-        except NameError:
-            return str(self.id)  # python 3 support
-
+        return str(self.id)  # Works for Python 3
+    
     def __repr__(self):
         return '<User %r>' % (self.username)
